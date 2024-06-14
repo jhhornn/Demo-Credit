@@ -17,7 +17,10 @@ const serverConfig: ServerConfig = {
 }
 
 const appConfig: AppConfig = {
-    KARMA_API_KEY: process.env.KARMA_API_KEY || ''
+    KARMA_API_KEY: process.env.KARMA_API_KEY || '',
+    JWT_SECRET: process.env.JWT_SECRET || '',
+    JWT_SECRET_EXP: process.env.JWT_SECRET_EXP || '',
+    NODE_ENV: process.env.NODE_ENV || 'development'
 }
 
 export default {

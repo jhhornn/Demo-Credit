@@ -7,13 +7,16 @@ export interface DatabaseConfig {
     DB_PASSWORD: string;
     DB_NAME: string;
 }
-  
+
 export interface ServerConfig {
     PORT: number;
 }
 
 export interface AppConfig {
-    KARMA_API_KEY: string
+    KARMA_API_KEY: string;
+    JWT_SECRET: string;
+    JWT_SECRET_EXP: string;
+    NODE_ENV: string;
 }
 
 // Interfaces

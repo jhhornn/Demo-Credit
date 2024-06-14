@@ -1,8 +1,8 @@
-import userRouter from "./userRoutes";
+import AuthRouter from "./AuthRoutes";
 import apiRouter from "./apiRouter";
 
 
 export default {
-    userRouter,
+    AuthRouter,
     apiRouter
 }

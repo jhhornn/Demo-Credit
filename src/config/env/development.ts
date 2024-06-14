@@ -1,5 +1,5 @@
 import { config as dotenvConfig } from 'dotenv';
-import { DatabaseConfig, ServerConfig } from '../interfaces';
+import { DatabaseConfig, ServerConfig, AppConfig } from '../../utils/interfaces';
 dotenvConfig();
 
 
@@ -16,7 +16,12 @@ const serverConfig: ServerConfig = {
     PORT: parseInt(process.env.SERVER_PORT || '3000', 10)
 }
 
+const appConfig: AppConfig = {
+    KARMA_API_KEY: process.env.KARMA_API_KEY || ''
+}
+
 export default {
     dbConfig,
-    serverConfig
+    serverConfig,
+    appConfig
 }

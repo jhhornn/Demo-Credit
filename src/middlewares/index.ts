@@ -1,5 +1,7 @@
 import { checkBlacklist } from "./blacklistMiddleware";
+import validatorMiddleware from "./validationMiddleware";
 
 export default {
-    checkBlacklist
+    checkBlacklist,
+    validatorMiddleware
 }

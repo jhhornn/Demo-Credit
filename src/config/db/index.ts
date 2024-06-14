@@ -1,7 +1,7 @@
 import knexConfig from "./knexfile";
 
 export default {
-    database: knexConfig
+    connect: knexConfig
 }
 
 

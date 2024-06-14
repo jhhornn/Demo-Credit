@@ -1,5 +1,5 @@
 import { config as dotenvConfig } from 'dotenv';
-import { DatabaseConfig, ServerConfig } from '../interfaces';
+import { DatabaseConfig, ServerConfig } from '../../utils/interfaces';
 dotenvConfig();
 
 

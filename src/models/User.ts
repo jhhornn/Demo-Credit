@@ -2,12 +2,13 @@ import { Knex } from "knex";
 import config from "../config";
 import { IUser } from "../utils/interfaces";
 import customError from "../utils/customError";
+import knex from "../config/db/db";
 
 class User {
     private knex: Knex;
 
     constructor() {
-        this.knex = config.db.connect;
+        this.knex = knex;
     }
 
     public async create(user: IUser): Promise<IUser> {

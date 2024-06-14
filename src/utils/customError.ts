@@ -40,7 +40,18 @@ class BadRequestError extends Error {
       this.statusCode = 400;
       this.error = 'Bad Request';
     }
-}  
+}
+
+class ForbiddenResourceError extends Error {
+    statusCode: number;
+    error: string;
+
+    constructor(message: string) {
+      super(message);
+      this.statusCode = 403;
+      this.error = 'Forbidden';
+    }
+}
 
 
 export default {
@@ -48,4 +59,5 @@ export default {
     UnAuthorizedError,
     NotFoundError,
     BadRequestError,
+    ForbiddenResourceError
 };

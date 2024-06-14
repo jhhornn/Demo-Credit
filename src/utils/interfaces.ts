@@ -1,3 +1,4 @@
+// Configs
 export interface DatabaseConfig {
     DB_CLIENT: string;
     DB_HOST: string;
@@ -15,6 +16,9 @@ export interface AppConfig {
     KARMA_API_KEY: string
 }
 
+// Interfaces
+
+//DB
 export interface IUser {
     user_id?: number;
     name: string;
@@ -25,4 +29,10 @@ export interface IUser {
     deleted_at?: Date;
 }
 
+// Error
+export interface CustomError {
+    msg: string;
+    statusCode: number;
+    error: string;
+  }
 

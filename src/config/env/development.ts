@@ -1,6 +1,9 @@
 import { config as dotenvConfig } from 'dotenv';
 import { DatabaseConfig, ServerConfig, AppConfig } from '../../utils/interfaces';
-dotenvConfig();
+import path from 'path'
+// dotenvConfig();
+dotenvConfig({ path: path.resolve(__dirname, '../../../.env') });
+
 
 
 const dbConfig: DatabaseConfig = {

@@ -3,15 +3,6 @@ import Controllers from '../controllers';
 import Middlewares from '../middlewares';
 import { registerSchema, loginSchema }from '../utils/validateSchemas'
 
-// const userRouter = Router();
-
-// userRouter.post(
-//     '/users',
-//     Middlewares.validatorMiddleware(userSchema),
-//     Middlewares.checkBlacklist, 
-//     Controllers.AuthController.register
-// );
-
 class AuthRouter {
     public router: Router;
   
@@ -33,5 +24,3 @@ class AuthRouter {
 }
   
 export default new AuthRouter().router;
-
-// export default userRouter;

@@ -32,6 +32,27 @@ export interface IUser {
     deleted_at?: Date;
 }
 
+export interface IWallet {
+    wallet_id: string;
+    user_id: number;   
+    balance: number; 
+    created_at?: Date; 
+}
+
+export interface ITransaction {
+    transaction_id?: number;
+    wallet_id: string;
+    type: 'fund' | 'transfer' | 'withdraw';
+    amount: number;
+    recipient_account_id: string;
+    created_at?: Date;
+}
+
+import { Knex } from 'knex';
+export interface Database {
+    connect: Knex;
+}
+
 // Error
 export interface CustomError {
     msg: string;

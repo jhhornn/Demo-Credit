@@ -34,4 +34,17 @@ const loginSchema: ObjectSchema = Joi.object({
   }),
 });
 
-export { registerSchema, loginSchema };
+const transactionSchema: ObjectSchema = Joi.object({
+  toWalletId: Joi.string().length(10).regex(/^\d+$/).messages({
+    'string.base': 'toWalletId must be a string',
+    'string.length': 'toWalletId must be exactly 10 digits',
+    'string.pattern.base': 'toWalletId must contain only digits',
+  }),
+  amount: Joi.number().positive().required().messages({
+    'number.base': 'amount must be a number',
+    'number.positive': 'amount must be a positive number',
+    'any.required': 'amount is required',
+  }),
+}).or('toWalletId', 'amount');
+
+export { registerSchema, loginSchema, transactionSchema };

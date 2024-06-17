@@ -1,8 +1,5 @@
-import userRouter from "./userRoutes";
-import apiRouter from "./apiRouter";
-
+import apiRouter from './apiRouter';
 
 export default {
-    userRouter,
-    apiRouter
-}
+  apiRouter,
+};

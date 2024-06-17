@@ -1,8 +1,12 @@
-import userRouter from "./userRoutes";
-import { Router } from "express";
+import AuthRouter from './AuthRoutes';
+import WalletRouter from './WalletRoutes';
+import transactionRouter from './transactionRoutes';
+import { Router } from 'express';
 
-const apiRouter = Router()
+const apiRouter = Router();
 
-apiRouter.use('/auth', userRouter)
+apiRouter.use('/auth', AuthRouter);
+apiRouter.use('/wallet', WalletRouter);
+apiRouter.use('/transactions', transactionRouter);
 
-export default apiRouter
+export default apiRouter;

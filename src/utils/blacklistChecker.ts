@@ -6,17 +6,21 @@ export async function isBlacklisted(identity: string): Promise<boolean> {
   try {
     const url = `https://adjutor.lendsqr.com/v2/verification/karma/${identity}`;
     const headers = {
-      'Authorization': `Bearer ${API_KEY}`
+      Authorization: `Bearer ${API_KEY}`,
     };
-  
-    const response = await axios.get(url, {
-       headers,
-       validateStatus: function (status) {
-        return status < 500
-       }
-      });
 
-    if (response.status === 404 && response.data.status === 'success' && response.data.message === 'Identity not found in karma') {
+    const response = await axios.get(url, {
+      headers,
+      validateStatus: function (status) {
+        return status < 500;
+      },
+    });
+
+    if (
+      response.status === 404 &&
+      response.data.status === 'success' &&
+      response.data.message === 'Identity not found in karma'
+    ) {
       return false;
     } else if (response.status === 200) {
       return true;

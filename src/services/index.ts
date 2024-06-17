@@ -1,6 +1,9 @@
-import UserService from "./UserService";
-
+import AuthService from './AuthService';
+import WalletService from './WalletService';
+import TransactionService from './TransactionService';
 
 export default {
-    UserService
-}
+  AuthService,
+  WalletService,
+  TransactionService,
+};

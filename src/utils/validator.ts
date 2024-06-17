@@ -1,6 +1,4 @@
-import {ObjectSchema} from 'joi';
-
-
+import { ObjectSchema } from 'joi';
 
 const validate = async (schema: ObjectSchema, payload: any) => {
   try {

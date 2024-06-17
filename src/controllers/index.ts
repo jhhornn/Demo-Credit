@@ -1,5 +1,9 @@
-import UserController from "./UserController";
+import AuthController from './AuthController';
+import WalletController from './WalletController';
+import TransactionController from './TransactionController';
 
 export default {
-    UserController
-}
+  AuthController,
+  WalletController,
+  TransactionController,
+};

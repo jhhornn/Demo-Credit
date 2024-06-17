@@ -9,19 +9,30 @@ class TransactionService {
     this.transactionModel = new TransactionModel(knex);
   }
 
-  public async createTransaction(transaction: ITransaction, trx?: Knex.Transaction): Promise<void> {
+  public async createTransaction(
+    transaction: ITransaction,
+    trx?: Knex.Transaction
+  ): Promise<void> {
     await this.transactionModel.createTransaction(transaction, trx);
   }
 
-  public async getTransactionById(transactionId: number, userId: string): Promise<ITransaction | null> {
+  public async getTransactionById(
+    transactionId: number,
+    userId: string
+  ): Promise<ITransaction | null> {
     return this.transactionModel.getTransactionById(transactionId, userId);
   }
 
-  public async getTransactionsBywalletId(walletId: string, userId: string): Promise<ITransaction[]> {
+  public async getTransactionsBywalletId(
+    walletId: string,
+    userId: string
+  ): Promise<ITransaction[]> {
     return this.transactionModel.getTransactionsBywalletId(walletId, userId);
   }
 
-  public async getTransactionsByUserId(userId: number): Promise<ITransaction[]> {
+  public async getTransactionsByUserId(
+    userId: number
+  ): Promise<ITransaction[]> {
     return this.transactionModel.getTransactionsByUserId(userId);
   }
 }

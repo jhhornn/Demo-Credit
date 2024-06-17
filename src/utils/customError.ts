@@ -1,63 +1,62 @@
 class ConflictError extends Error {
-    statusCode: number;
-    error: string;
+  statusCode: number;
+  error: string;
 
-    constructor(message: string) {
-      super(message);
-      this.statusCode = 409;
-      this.error = 'Conflict';
-    }
+  constructor(message: string) {
+    super(message);
+    this.statusCode = 409;
+    this.error = 'Conflict';
+  }
 }
 
 class UnAuthorizedError extends Error {
-    statusCode: number;
-    error: string;
+  statusCode: number;
+  error: string;
 
-    constructor(message: string) {
-      super(message);
-      this.statusCode = 401;
-      this.error = 'Unauthorized';
-    }
+  constructor(message: string) {
+    super(message);
+    this.statusCode = 401;
+    this.error = 'Unauthorized';
+  }
 }
 
 class NotFoundError extends Error {
-    statusCode: number;
-    error: string;
+  statusCode: number;
+  error: string;
 
-    constructor(message: string) {
-      super(message);
-      this.statusCode = 404;
-      this.error = 'Not Found';
-    }
+  constructor(message: string) {
+    super(message);
+    this.statusCode = 404;
+    this.error = 'Not Found';
+  }
 }
 
 class BadRequestError extends Error {
-    statusCode: number;
-    error: string;
-  
-    constructor(message: string) {
+  statusCode: number;
+  error: string;
+
+  constructor(message: string) {
     super(message);
-      this.statusCode = 400;
-      this.error = 'Bad Request';
-    }
+    this.statusCode = 400;
+    this.error = 'Bad Request';
+  }
 }
 
 class ForbiddenResourceError extends Error {
-    statusCode: number;
-    error: string;
+  statusCode: number;
+  error: string;
 
-    constructor(message: string) {
-      super(message);
-      this.statusCode = 403;
-      this.error = 'Forbidden';
-    }
+  constructor(message: string) {
+    super(message);
+    this.statusCode = 403;
+    this.error = 'Forbidden';
+  }
 }
 
-
 export default {
-    ConflictError,
-    UnAuthorizedError,
-    NotFoundError,
-    BadRequestError,
-    ForbiddenResourceError
+  ConflictError,
+  UnAuthorizedError,
+  NotFoundError,
+  BadRequestError,
+  ForbiddenResourceError,
 };

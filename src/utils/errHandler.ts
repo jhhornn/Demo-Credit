@@ -1,8 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 import { CustomError } from './interfaces';
 
-
-const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
+const errorHandler = (
+  err: any,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   let customError: CustomError = {
     msg: err.message || 'Something went wrong',
     statusCode: err.statusCode || 500,

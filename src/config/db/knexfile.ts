@@ -1,5 +1,5 @@
-import  {Knex}  from "knex";
-import db from "../env";
+import { Knex } from 'knex';
+import db from '../env';
 
 const knexConfig: { [key: string]: Knex.Config } = {
   development: {
@@ -37,6 +37,6 @@ const knexConfig: { [key: string]: Knex.Config } = {
       directory: '../../database/seeds',
     },
   },
-}
+};
 
-export default knexConfig
+export default knexConfig;

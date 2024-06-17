@@ -1,0 +1,9 @@
+# Ignore artifacts:
+build
+coverage
+.github
+package-lock.json
+README.md
+.vscode
+dist
+node_modules

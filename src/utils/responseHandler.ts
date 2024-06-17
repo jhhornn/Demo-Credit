@@ -5,7 +5,13 @@ class ResponseHandler {
   private message: string;
   private meta: any | null;
 
-  constructor(res: Response, data: any, statusCode: number, message: string, meta: any = null) {
+  constructor(
+    res: Response,
+    data: any,
+    statusCode: number,
+    message: string,
+    meta: any = null
+  ) {
     this.data = data;
     this.message = message;
     this.meta = meta;

@@ -13,7 +13,6 @@ app.use(urlencoded({ extended: true }));
 app.use(json());
 
 app.use('/api/v1/', Routes.apiRouter);
-app.use(errHandler)
-
+app.use(errHandler);
 
 export default app;

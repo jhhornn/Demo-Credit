@@ -1,8 +1,11 @@
 import { config as dotenvConfig } from 'dotenv';
-import { DatabaseConfig, ServerConfig, AppConfig } from '../../utils/interfaces';
-import path from 'path'
+import {
+  DatabaseConfig,
+  ServerConfig,
+  AppConfig,
+} from '../../utils/interfaces';
+import path from 'path';
 dotenvConfig({ path: path.resolve(__dirname, '../../../.env') });
-
 
 const dbConfig: DatabaseConfig = {
   DB_CLIENT: process.env.PROD_DB_CLIENT || '',
@@ -14,18 +17,18 @@ const dbConfig: DatabaseConfig = {
 };
 
 const serverConfig: ServerConfig = {
-    PORT: parseInt(process.env.PROD_SERVER_PORT || '3000', 10)
-}
+  PORT: parseInt(process.env.PROD_SERVER_PORT || '3000', 10),
+};
 
 const appConfig: AppConfig = {
   KARMA_API_KEY: process.env.KARMA_API_KEY || '',
   JWT_SECRET: process.env.JWT_SECRET || '',
   JWT_SECRET_EXP: process.env.JWT_SECRET_EXP || '',
-  NODE_ENV: process.env.NODE_ENV || 'production'
-}
+  NODE_ENV: process.env.NODE_ENV || 'production',
+};
 
 export default {
-    dbConfig,
-    serverConfig,
-    appConfig
-}
+  dbConfig,
+  serverConfig,
+  appConfig,
+};

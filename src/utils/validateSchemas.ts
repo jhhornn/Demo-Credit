@@ -17,16 +17,17 @@ const registerSchema: ObjectSchema = Joi.object({
   }),
 });
 
-
 const loginSchema: ObjectSchema = Joi.object({
-  identifier: Joi.alternatives().try(
-    Joi.string().email().messages({
-      'string.email': 'Invalid email format',
-    }),
-    Joi.string().messages({
-      'string.empty': 'Username or email is required',
-    })
-  ).required(),
+  identifier: Joi.alternatives()
+    .try(
+      Joi.string().email().messages({
+        'string.email': 'Invalid email format',
+      }),
+      Joi.string().messages({
+        'string.empty': 'Username or email is required',
+      })
+    )
+    .required(),
   password: Joi.string().min(6).required().messages({
     'string.min': 'Password must be at least 6 characters long',
     'string.empty': 'Password is required',

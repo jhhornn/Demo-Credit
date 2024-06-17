@@ -1,18 +1,6 @@
 import  {Knex}  from "knex";
 import db from "../env";
 
-
-// const knexConfig = Knex({
-//     client: db.dev.dbConfig.DB_CLIENT,
-//     connection: {
-//       host: db.dev.dbConfig.DB_HOST,
-//       port: db.dev.dbConfig.DB_PORT,
-//       user: db.dev.dbConfig.DB_USER,
-//       password: db.dev.dbConfig.DB_PASSWORD,
-//       database: db.dev.dbConfig.DB_NAME,
-//     }
-// })
-
 const knexConfig: { [key: string]: Knex.Config } = {
   development: {
     client: db.dev.dbConfig.DB_CLIENT,
@@ -25,10 +13,28 @@ const knexConfig: { [key: string]: Knex.Config } = {
     },
     pool: { min: 0, max: 7 },
     migrations: {
-      directory: './migrations',
+      directory: '../../database/migrations',
     },
     seeds: {
-      directory: './seeds',
+      directory: '../../database/seeders',
+    },
+  },
+
+  production: {
+    client: db.prod.dbConfig.DB_CLIENT,
+    connection: {
+      host: db.prod.dbConfig.DB_HOST,
+      user: db.prod.dbConfig.DB_USER,
+      password: db.prod.dbConfig.DB_PASSWORD,
+      database: db.prod.dbConfig.DB_NAME,
+      port: db.prod.dbConfig.DB_PORT,
+    },
+    pool: { min: 2, max: 10 },
+    migrations: {
+      directory: '../../database/migrations',
+    },
+    seeds: {
+      directory: '../../database/seeds',
     },
   },
 }

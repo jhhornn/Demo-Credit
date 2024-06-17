@@ -1,31 +1,42 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { IUser } from '../utils/interfaces';
+import { IUser, IWallet } from '../utils/interfaces';
 import knex, { Knex } from 'knex';
 import config from '../config';
 import customError from '../utils/customError';
 import { omitPassword } from '../utils/omitPassword';
+import WalletModel from '../models/WalletModel';
+import hashPassword from '../utils/hashPassword';
 
 class AuthService {
   private knex: Knex;
   private secret: string;
+  private walletModel: WalletModel;
 
   constructor(knex: Knex) {
     this.knex = knex;
     this.secret = config.env_var.dev.appConfig.JWT_SECRET || '';
+    this.walletModel = new WalletModel(knex);
   }
 
   public async register(user: IUser): Promise<Omit<IUser, 'password'>> {
-    const hashedPassword = await bcrypt.hash(user.password, 10);
-    const [insertedId] = await this.knex('users').insert({
-      ...user,
-      password: hashedPassword,
-    });
-    const createdUser = await this.knex<IUser>('users').where({ user_id: insertedId }).first();
-    if (!createdUser) {
-       throw new customError.NotFoundError('User not found after insertion');
-    }
-    return omitPassword(createdUser);
+    return await this.knex.transaction(async trx => {
+        const hashedPassword = await hashPassword(user.password)
+        
+        const [insertedId] = await this.knex('users').insert({
+          ...user,
+          password: hashedPassword,
+        }).transacting(trx);
+  
+        const createdUser = await this.knex<IUser>('users').where({ user_id: insertedId }).first().transacting(trx);
+        if (!createdUser) {
+          throw new customError.NotFoundError('User not found after insertion');
+        }
+  
+        await this.walletModel.createWallet(insertedId,trx);
+  
+        return omitPassword(createdUser);
+      });
   }
 
   public async login(identifier: string, password: string): Promise<{ user: Omit<IUser, 'password'>; token: string }> {

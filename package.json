@@ -8,7 +8,9 @@
     "prestart": "npm run build",
     "start": "node dist/index.js",
     "dev": "nodemon src/index.ts",
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "migration": "npx knex migrate:latest --knexfile ./src/config/db/knexfile.ts --env development",
+    "seed": "npx knex seed:run --knexfile ./src/config/db/knexfile.ts --env development"
   },
   "keywords": [],
   "author": "",

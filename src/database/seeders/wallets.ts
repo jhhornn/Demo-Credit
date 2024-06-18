@@ -1,5 +1,5 @@
 import { Knex } from 'knex';
-import generateWalletId from '../../utils/generateAccountId';
+import generateWalletId from '../../utils/generateWalletId';
 
 const walletId1 = generateWalletId();
 const walletId2 = generateWalletId();
@@ -10,8 +10,8 @@ export async function seed(knex: Knex): Promise<void> {
 
   // Inserts seed entries
   await knex('wallets').insert([
-    { user_id: 19, wallet_id: walletId1, balance: 1000.0 },
-    { user_id: 20, wallet_id: walletId2, balance: 1500.0 },
+    { user_id: 1, wallet_id: walletId1, balance: 1000.0 },
+    { user_id: 2, wallet_id: walletId2, balance: 1500.0 },
   ]);
 }
 

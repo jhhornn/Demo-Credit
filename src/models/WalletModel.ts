@@ -1,6 +1,6 @@
 import { Knex } from 'knex';
 import { IWallet } from '../utils/interfaces';
-import generateAccountId from '../utils/generateAccountId';
+import generateAccountId from '../utils/generateWalletId';
 
 class WalletModel {
   private knex: Knex;

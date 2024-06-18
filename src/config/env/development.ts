@@ -6,7 +6,7 @@ import {
 } from '../../utils/interfaces';
 import path from 'path';
 // dotenvConfig();
-dotenvConfig({ path: path.resolve(__dirname, '../../../.env') });
+dotenvConfig();
 
 const dbConfig: DatabaseConfig = {
   DB_CLIENT: process.env.DB_CLIENT || '',

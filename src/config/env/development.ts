@@ -9,7 +9,7 @@ import path from 'path';
 dotenvConfig();
 
 const dbConfig: DatabaseConfig = {
-  DB_CLIENT: process.env.DB_CLIENT || '',
+  DB_CLIENT: process.env.DB_CLIENT || 'mysql',
   DB_HOST: process.env.DB_HOST || '',
   DB_PORT: parseInt(process.env.DB_PORT || '3306', 10),
   DB_USER: process.env.DB_USER || '',

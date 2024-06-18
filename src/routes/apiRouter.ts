@@ -1,7 +1,7 @@
 import AuthRouter from './AuthRoutes';
 import WalletRouter from './WalletRoutes';
-import TransactionRouter from './TransactionRoutes';
 import { Router } from 'express';
+import TransactionRouter from './TransactionRoutes';
 
 const apiRouter = Router();
 

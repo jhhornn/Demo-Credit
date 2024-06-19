@@ -1,6 +1,6 @@
 import { Knex } from 'knex';
 import { IWallet } from '../utils/interfaces';
-import generateAccountId from '../utils/generateWalletId';
+import generateWalletId from '../utils/generateWalletId';
 
 class WalletModel {
   private knex: Knex;
@@ -13,7 +13,7 @@ class WalletModel {
     userId: number,
     trx?: Knex.Transaction
   ): Promise<string> {
-    const walletId = generateAccountId();
+    const walletId = generateWalletId();
     const query = this.knex('wallets').insert({
       wallet_id: walletId,
       user_id: userId,
